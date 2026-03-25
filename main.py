@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 import os
 import io
 import aiohttp
+import requests
 
 # idea of events vs commands. Events are when things happen, but commands are like talking directly to the bot
 load_dotenv()
@@ -18,8 +19,9 @@ class Glarb(commands.Bot):
         super().__init__(command_prefix="!", intents=intents)
 
     async def setup_hook(self):
-        await self.load_extension("scryfalling")
-        print("Loaded cogs smile")
+        await self.load_extension("basic")
+        await self.load_extension("scryfall")
+        print("Loaded cogs!")
 
 async def main():
      bot = Glarb()
