@@ -5,7 +5,6 @@ from dotenv import load_dotenv
 import os
 import io
 import aiohttp
-import requests
 
 url = "https://api.scryfall.com/cards/"
 
