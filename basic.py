@@ -15,7 +15,8 @@ dinner_outcomes = [
     "Jay-Z narrowly defeats you in a rock-paper-scissors best of 7.",
     "You accidentally call Jay-Z 'Jay-G' and he is so offended that he cancels the dinner and leaves, leaving you with nothing but a $50,000 bill for the meal.",
     "You play the Jay-Z 'Monster' verse parody off your phone, and he does not find it funny. He leaves the dinner early, and you are left with a $50,000 bill for the meal.",
-    "You play the Jay-Z 'Monster' verse parody off your phone, and he finds it hilarious. He laughs so hard that he accidentally chokes on his food and dies, leaving you with a $50,000 bill for the meal and a lifetime of guilt."
+    "You play the Jay-Z 'Monster' verse parody off your phone, and he finds it hilarious. He laughs so hard that he accidentally chokes on his food and dies, leaving you with a $50,000 bill for the meal and a lifetime of guilt.",
+]
 
 
 class Basic(commands.Cog):
