@@ -35,11 +35,17 @@ class Basic(commands.Cog):
     @commands.command(name="dinner")
     async def dinner(self, ctx):
         outcome_text, amount = random.choice(list(dinner_outcomes.items()))
-        await ctx.send(outcome_text)
         economy = load_economy()
         user_id = str(ctx.author.id)
         economy[user_id] = economy.get(user_id, 0) + amount
         save_economy(economy)
+        if amount == 0:
+            outcome_text += " Your balance remains unchanged."
+        else:
+            outcome_text += (
+                f" Your new balance is **{format_currency(economy[user_id])}**."
+            )
+        await ctx.send(outcome_text)
 
     @commands.command(name="balance")
     async def balance(self, ctx):
@@ -47,7 +53,7 @@ class Basic(commands.Cog):
         user_id = str(ctx.author.id)
         balance = economy.get(user_id, 0)
         if balance < 0:
-            await ctx.send(f"You owe Glarb **{format_currency(balance)}**.")
+            await ctx.send(f"You owe Glarb **{format_currency(-balance)}**.")
         else:
             await ctx.send(f"Your current balance is **{format_currency(balance)}**.")
 
@@ -55,7 +61,7 @@ class Basic(commands.Cog):
     async def helpcmd(self, ctx):
         await ctx.send(
             "I am Glarb, the slipperiest sorcerer in the realm. I can play music and do some MtG related stuff. \n\n"
-            "**Commands:**\n"
+            "**Commands:**\n\n"
             "!play <video> - play a video\n"
             "!skip - skip the current video\n"
             "!stop - stop the music and disconnect\n"
@@ -66,6 +72,7 @@ class Basic(commands.Cog):
             "!pause - pause the current track\n"
             "!resume - resume the current track\n"
             "!dinner - have dinner with Jay-Z\n"
+            "!balance - check your balance\n"
         )
 
     # doing something when the cog gets loaded
