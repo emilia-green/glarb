@@ -31,10 +31,16 @@ def save_economy(data):
 class Basic(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+        self.prev_outcome_text = None
 
     @commands.command(name="dinner")
     async def dinner(self, ctx):
+
         outcome_text, amount = random.choice(list(dinner_outcomes.items()))
+        while outcome_text == self.prev_outcome_text:
+            outcome_text, amount = random.choice(list(dinner_outcomes.items()))
+        self.prev_outcome_text = outcome_text
+
         economy = load_economy()
         user_id = str(ctx.author.id)
         economy[user_id] = economy.get(user_id, 0) + amount
