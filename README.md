@@ -1,6 +1,3 @@
-source venv/bin/activate.fish
-
-
 screening in and out of bot:
 
 #### to start process
