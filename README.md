@@ -1,3 +1,7 @@
+# Glarb
+
+Glarb is a discord bot primarily used for playing music from youtube using `yt-dlp`. He has a couple of other commands relating to Magic: The Gathering and also a minigame where you can get dinner with Jay-Z. 
+
 screening in and out of bot:
 
 #### to start process
