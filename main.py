@@ -25,6 +25,7 @@ class Glarb(commands.Bot):
         await self.load_extension("basic")
         await self.load_extension("scryfall")
         await self.load_extension("youtube")
+        await self.load_extension("dnd")
         print("Loaded cogs!")
     
     async def close(self):
